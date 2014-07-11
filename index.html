@@ -20,6 +20,16 @@
       }
 
       .svg-chart .bar { fill: #4682B4; }
+      .svg-chart .bar.active { fill: #FF0000; }
+
+      .d3-tip {
+        background-color: white;
+        border: 1px solid #CCC;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px;
+        pointer-events: none;
+      }
     </style>
 
   </head>
@@ -46,5 +56,34 @@
         containerId: 'bar-chart-large'
       })
     %>
+
+    <script src="/public/d3/d3.min.js"></script>
+    <script src="/public/d3-tip/index.js"></script>
+    <script>
+
+      var tip = d3.tip()
+          .attr('class', 'd3-tip')
+          .direction('n')
+          .html(function (d) {
+            return 'Month: ' + d.x + ' <br/>Clicks: ' + d.y;
+          });
+
+      d3.selectAll('.svg-chart rect.bar')
+          .call(tip)
+          .on('mouseover', function () {
+            var self =  d3.select(this);
+            var data = {
+              x: self.attr('data-x'),
+              y: self.attr('data-y')
+            };
+            tip.show(data);
+            self.classed('active', true);
+          })
+          .on('mouseout', function () {
+            tip.hide({});
+            d3.select(this).classed('active', false);
+          });
+
+    </script>
   </body>
 </html>

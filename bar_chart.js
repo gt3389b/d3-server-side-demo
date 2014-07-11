@@ -180,6 +180,8 @@ var barChart = module.exports = function() {
         .data(data)
         .enter().append('rect')
         .attr('class', 'bar')
+        .attr('data-x', function(d) { return d.name; })
+        .attr('data-y', function(d) { return d.count; })
         .attr('x', function(d) {
           return xScale(d.name) + axisLabelMargin;
         })

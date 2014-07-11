@@ -7,6 +7,9 @@ app.set('views', __dirname);
 app.set('view engine', 'html');
 
 
+app.use('/public', express.static(__dirname + '/bower_components'));
+
+
 var fixtureData = require('./fixture_data.json');
 app.locals.barChartHelper = require('./bar_chart_helper');
 
