@@ -1,6 +1,9 @@
 # d3-server-side-demo
 
-This demo app uses d3.js to render svg charts on the server-side with node.js.
+This app uses d3.js to render svg charts on the server-side with node.js.
+
+Inspired to generate a chart like:
+https://www.fastcompany.com/3068474/the-real-difference-between-google-and-apple
 
 
 ## Requirements
