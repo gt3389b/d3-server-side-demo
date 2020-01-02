@@ -6,7 +6,7 @@ app.engine('.html', require('ejs').__express);
 app.set('views', __dirname);
 app.set('view engine', 'html');
 
-app.locals.barChartHelper = require('./bar_chart_helper');
+//app.locals.barChartHelper = require('./bar_chart_helper');
 
 
 app.get('/', function(req, res) {

@@ -2,3 +2,4 @@ node_modules
 .DS_Store
 build/
 public/got_social_graph.json
+index.html.working
